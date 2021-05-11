@@ -1,0 +1,99 @@
+$primary_bg: #ffc56f;
+$second_bg: #feb779;
+$primary_btn_color: #fe7b45;
+$second_btn_color: #00bea3;
+$primary_text_color: #000;
+$second_text_color: #fff;
+$btn_padding_value: 0.75em;
+$input_text_value: 1em;
+$btn_radius_value: 8px;
+
+.flex_col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn {
+    border: none;
+    color: $second_text_color;
+    background-color: $primary_btn_color;
+    cursor: pointer;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.container {
+    @extend .flex_col;
+    background-image: linear-gradient($primary_bg, $second_bg);
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+
+    .add_filter_container {
+        @extend .flex_row;
+        justify-content: space-around;
+        align-items: center;
+        width: 60vw;
+
+        .input_form {
+            border: none;
+            font-weight: bold;
+            font-size: $input_text_value;
+            max-width: 150px;
+        }
+
+        .add_btn {
+            @extend .btn;
+            color: $second_text_color;
+            border-radius: 0 $btn_radius_value $btn_radius_value 0;
+        }
+    }
+
+    .todo_list_container {
+        @extend .flex_col;
+        width: 80vw;
+        max-width: 500px;
+
+        .todo_item_container {
+            @extend .flex_row;
+
+            margin-bottom: 6px;
+            justify-content: center;
+            align-items: stretch;
+            min-height: 30px;
+
+            .todo_finish {
+                text-decoration: line-through;
+            }
+
+            .todo {
+                background-color: $second_text_color;
+                flex: 3;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: 16px;
+            }
+
+            .done_btn {
+                @extend .btn;
+                background-color: $second_btn_color;
+            }
+
+            .delete_btn {
+                @extend .btn;
+                background-color: $primary_btn_color;
+            }
+        }
+    }
+
+    .title {
+        color: $second_text_color;
+    }
+}

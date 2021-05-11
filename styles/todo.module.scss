@@ -39,6 +39,7 @@ $btn_radius_value: 8px;
         @extend .flex_row;
         justify-content: space-around;
         align-items: center;
+        width: 60vw;
 
         .input_form {
             border: none;
@@ -66,25 +67,29 @@ $btn_radius_value: 8px;
             justify-content: center;
             align-items: stretch;
             min-height: 30px;
-        }
 
-        .todo {
-            background-color: $second_text_color;
-            flex: 3;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding-left: 16px;
-        }
+            .todo_finish {
+                text-decoration: line-through;
+            }
 
-        .done_btn {
-            @extend .btn;
-            background-color: $second_btn_color;
-        }
+            .todo {
+                background-color: $second_text_color;
+                flex: 3;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: 16px;
+            }
 
-        .delete_btn {
-            @extend .btn;
-            background-color: $primary_btn_color;
+            .done_btn {
+                @extend .btn;
+                background-color: $second_btn_color;
+            }
+
+            .delete_btn {
+                @extend .btn;
+                background-color: $primary_btn_color;
+            }
         }
     }
 

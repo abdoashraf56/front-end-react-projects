@@ -1,11 +1,23 @@
 import TodoItem from "./TodoItem";
 
-function TodoList({ styles, list }) {
+function TodoList({ styles, list, filter }) {
+
+    let filter_list = (list) => {
+        if (filter == "All") return list
+
+        return list.filter(todo => {
+            if (filter == "Complete") {
+                return todo.compelete == true
+            } else {
+                return todo.compelete == false
+            }
+        })
+    }
     return (
         <div className={styles.todo_list_container}>
-            {list.map(todo => {
+            {filter_list(list).map(todo => {
                 return (
-                    <TodoItem data={todo} styles={styles} />
+                    <TodoItem key={todo.id} data={todo} styles={styles} />
                 );
             })}
         </div>

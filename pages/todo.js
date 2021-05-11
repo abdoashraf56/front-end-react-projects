@@ -19,6 +19,21 @@ function todo(props) {
         setTodos([...todos, todo])
     }
 
+    let update_todo_in_list = (todo) => {
+        let prev = todos.filter(t => {
+            if (t.id == todo.id) return todo
+            return t
+        })
+        setTodos([...prev]);
+    }
+
+    let delete_todo_in_list = (todo) => {
+        let prev = todos.filter(t => {
+            if (t.id != todo.id) return t
+        })
+        setTodos([...prev]);
+    }
+
     let change_filter_value = (value) => {
         setFilter(value)
     }
@@ -32,7 +47,13 @@ function todo(props) {
                 <FilterForm styles={styles} change_value={change_filter_value} />
             </div>
 
-            <TodoList styles={styles} list={todos} filter={filter_by} />
+            <TodoList
+                styles={styles}
+                list={todos}
+                filter={filter_by}
+                update_todo={update_todo_in_list}
+                delete_todo={delete_todo_in_list}
+            />
         </div>
     );
 }

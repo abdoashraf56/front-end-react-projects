@@ -7,6 +7,8 @@ import styles from '../styles/todo.module.scss'
 function todo(props) {
     let [filter_by, setFilter] = useState('All')
 
+    let [theme, setTheme] = useState(true)
+
     let [todos, setTodos] = useState([
         { id: 0, text: "Learn C++", compelete: true },
         { id: 1, text: "Learn C#", compelete: false },
@@ -38,22 +40,31 @@ function todo(props) {
         setFilter(value)
     }
 
+    let handleThemeChange = () => {
+        setTheme(!theme)
+    }
+
     return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>The TODO APP</h1>
+        <div className={theme ? styles.light : styles.dark}>
+            <label className={styles.switch}>
+                <input type="checkbox" onChange={handleThemeChange} />
+                <span className={styles.slider}></span>
+            </label>
+            <div className={styles.container}>
+                <h1 className={styles.title}>The TODO APP</h1>
+                <div className={styles.add_filter_container}>
+                    <AddForm styles={styles} add={add_todo_to_list} />
+                    <FilterForm styles={styles} change_value={change_filter_value} />
+                </div>
 
-            <div className={styles.add_filter_container}>
-                <AddForm styles={styles} add={add_todo_to_list} />
-                <FilterForm styles={styles} change_value={change_filter_value} />
+                <TodoList
+                    styles={styles}
+                    list={todos}
+                    filter={filter_by}
+                    update_todo={update_todo_in_list}
+                    delete_todo={delete_todo_in_list}
+                />
             </div>
-
-            <TodoList
-                styles={styles}
-                list={todos}
-                filter={filter_by}
-                update_todo={update_todo_in_list}
-                delete_todo={delete_todo_in_list}
-            />
         </div>
     );
 }

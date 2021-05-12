@@ -14,7 +14,7 @@ function TodoItem({ styles, data, update_todo, delete_todo }) {
         <div key={data.id} className={styles.todo_item_container}>
             <div className={data.compelete ? styles.todo_finish : styles.todo}>
                 <div
-                    className={data.compelete ? styles.todo_text_finish : ""}
+                    className={data.compelete ? styles.todo_text_finish : styles.todo_text}
                 >{data.text}</div>
             </div>
 

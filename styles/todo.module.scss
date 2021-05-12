@@ -1,12 +1,60 @@
-$primary_bg: #ffc56f;
-$second_bg: #feb779;
-$primary_btn_color: #fe7b45;
-$second_btn_color: #00bea3;
-$primary_text_color: #000;
-$second_text_color: #fff;
+//Light Colors Values
+$primary_bg_light: #ffc56f;
+$second_bg_light: #feb779;
+$darken_bg_light: darken(#fff, 20%);
+$primary_text_color_light: black;
+$second_text_color_dark: white;
+$primary_btn_color_light: #fe7b45;
+$second_btn_color_light: #00bea3;
+
+//Dark Colors Values
+$primary_bg_dark: rgb(66, 66, 66);
+$second_bg_dark: rgb(41, 41, 41);
+$darken_bg_dark: darken(#fff, 20%);
+$primary_text_color_dark: black;
+$second_text_color_dark: white;
+$primary_btn_color_dark: #fe7b45;
+$second_btn_color_dark: #00bea3;
+
+//Button values
 $btn_padding_value: 0.75em;
-$input_text_value: 1em;
 $btn_radius_value: 8px;
+$btn-font-size: 1.5em;
+
+//Inputs Values
+$input_text_value: 1em;
+$input_max_width: 150px;
+
+//TODO List Values
+$list_max_width: 500px;
+$list_max_height: 200px;
+
+//TODO item Container value
+$margin_bottom: 6px;
+
+//TODO item
+$padding: 16px;
+$todo_item_min_height: 30px;
+
+.light {
+    --primary_bg: #ffc56f;
+    --second_bg: #feb779;
+    --darken_bg: rgb(182, 182, 182);
+    --primary_text_color: #000;
+    --second_text_color: #fff;
+    --primary_btn_color: #fe7b45;
+    --second_btn_color: #00bea3;
+}
+
+.dark {
+    --primary_bg: rgb(66, 66, 66);
+    --second_bg: rgb(41, 41, 41);
+    --darken_bg: rgb(182, 182, 182);
+    --primary_text_color: #fff;
+    --second_text_color: #000;
+    --primary_btn_color: #fe7b45;
+    --second_btn_color: #00bea3;
+}
 
 .flex_col {
     display: flex;
@@ -20,16 +68,16 @@ $btn_radius_value: 8px;
 
 .btn {
     border: none;
-    color: $second_text_color;
-    background-color: $primary_btn_color;
+    color: var(--second_text_color);
+    background-color: var(--primary_btn_color);
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: $btn-font-size;
     text-align: center;
 }
 
 .container {
     @extend .flex_col;
-    background-image: linear-gradient($primary_bg, $second_bg);
+    background-image: linear-gradient(var(--primary_bg), var(--second_bg));
     width: 100vw;
     height: 100vh;
     justify-content: space-around;
@@ -45,12 +93,12 @@ $btn_radius_value: 8px;
             border: none;
             font-weight: bold;
             font-size: $input_text_value;
-            max-width: 150px;
+            max-width: $input_max_width;
         }
 
         .add_btn {
             @extend .btn;
-            color: $second_text_color;
+            color: var(--second_text_color);
             border-radius: 0 $btn_radius_value $btn_radius_value 0;
         }
     }
@@ -58,56 +106,115 @@ $btn_radius_value: 8px;
     .todo_list_container {
         @extend .flex_col;
         width: 80vw;
-        max-width: 500px;
-        max-height: 200px;
+        max-width: $list_max_width;
+        max-height: $list_max_height;
 
         .todo_item_container {
             @extend .flex_row;
 
-            margin-bottom: 6px;
+            margin-bottom: $margin_bottom;
             justify-content: center;
             align-items: stretch;
-            min-height: 30px;
+            min-height: $todo_item_min_height;
+
+            .todo_text {
+                color: var(--primary_text_color);
+            }
 
             .todo_text_finish {
                 text-decoration: line-through;
             }
 
             .todo_finish {
-                background-color: darken($second_text_color, 20%);
+                background-color: var(--darken_bg);
                 flex: 3;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                padding-left: 16px;
+                padding-left: $padding;
             }
 
             .todo {
-                background-color: $second_text_color;
+                background-color: var(--second_text_color);
                 flex: 3;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                padding-left: 16px;
+                padding-left: $padding;
             }
 
             .done_btn {
                 @extend .btn;
-                background-color: $second_btn_color;
+                background-color: var(--second_btn_color);
             }
 
             .delete_btn {
                 @extend .btn;
-                background-color: $primary_btn_color;
+                background-color: var(--primary_btn_color);
             }
         }
     }
 
     .title {
-        color: $second_text_color;
+        color: var(--primary_text_color);
     }
 
     .subtitle {
-        color: $second_text_color;
+        color: var(--primary_text_color);
+    }
+}
+
+//Use w3schools example
+.switch {
+    position: absolute;
+    margin: 16px;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        border-radius: 34px;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--primary_text_color);
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+
+    input:checked + .slider {
+        background-color: var(--primary_btn_color);
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px var(--primary_btn_color);
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
     }
 }

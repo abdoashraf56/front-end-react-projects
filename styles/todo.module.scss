@@ -75,6 +75,26 @@ $todo_item_min_height: 30px;
     text-align: center;
 }
 
+.splash_container {
+    background-color: var(--primary_bg);
+
+    .splash {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mark {
+        @extend .btn;
+        margin-right: $padding;
+        background-color: var(--second_btn_color);
+        color: var(--second_text_color);
+        border-radius: 50%;
+    }
+}
+
 .container {
     @extend .flex_col;
     background-image: linear-gradient(var(--primary_bg), var(--second_bg));
@@ -171,6 +191,8 @@ $todo_item_min_height: 30px;
     display: inline-block;
     width: 60px;
     height: 34px;
+    top: 0;
+    left: 0;
 
     .switch input {
         opacity: 0;

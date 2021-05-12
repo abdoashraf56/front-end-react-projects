@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import TodoItem from "./TodoItem";
 
 function TodoList({ styles, list, filter, update_todo, delete_todo }) {
@@ -22,7 +23,7 @@ function TodoList({ styles, list, filter, update_todo, delete_todo }) {
 
 
     return (
-        <div className={styles.todo_list_container} style={{
+        <motion.div layout className={styles.todo_list_container} style={{
             overflow : list.length > 5 ? "scroll" : ""
         }}>
             {filter_list(list).map(todo => {
@@ -36,7 +37,7 @@ function TodoList({ styles, list, filter, update_todo, delete_todo }) {
                     />
                 );
             })}
-        </div>
+        </motion.div>
     );
 }
 

@@ -8,7 +8,7 @@ import { useEffect } from 'react';
         animate : { 
             height: 0, 
             opacity: 0  ,
-            transition:{ duration: 3, when: "afterChildren" , delay : 2 }
+            transition:{ duration: 1, when: "afterChildren" , delay : 2 }
         } ,
         inital : {
             

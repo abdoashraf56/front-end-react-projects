@@ -12,6 +12,12 @@ function ColorNode({ styles, color, lock }) {
 
     }
 
+    let handleColorTextClick = async (e) => {
+        await navigator.clipboard.writeText(e.currentTarget.innerText)
+
+        alert("Coped to the clipboard")
+    }
+
     let colorCenter = 16777215 / 3
 
     let convert = color.color_text.replace("#", "0x")
@@ -22,7 +28,11 @@ function ColorNode({ styles, color, lock }) {
 
     return (
         <div className={styles.colornode} style={{ backgroundColor: color.color_text }}>
-            <h4 style={{ color: backColor }} className={styles.color_title}>{color.color_text}</h4>
+            <h4
+                style={{ color: backColor }}
+                className={styles.color_title}
+                onClick={handleColorTextClick}
+            >{color.color_text}</h4>
 
 
 

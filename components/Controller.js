@@ -1,7 +1,7 @@
 
-function Controller({ styles, name, Icon, onClick }) {
+function Controller({ styles, name, Icon, click }) {
     let handleClick = () => {
-        onClick()
+        click()
     }
     return (
         <div className={styles.controller} onClick={handleClick}>

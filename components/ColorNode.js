@@ -12,11 +12,11 @@ function ColorNode({ styles, color, lock }) {
 
     }
 
-    let colorCenter = 16777215 / 7
+    let colorCenter = 16777215 / 3
 
     let convert = color.color_text.replace("#", "0x")
 
-    let colorValue = parseInt(convert)
+    let colorValue = parseInt(convert, 16)
 
     let backColor = colorValue > colorCenter ? "black" : "white"
 

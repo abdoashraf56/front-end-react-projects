@@ -1,9 +1,9 @@
 import ColorItem from "./ColorItem";
 
-function LibraryColorsItem({ styles, colors, update }) {
+function LibraryColorsItem({ styles, colors, update, toggle }) {
 
     let handleClick = () => {
-        console.log(colors)
+        toggle()
         update(colors)
     }
 

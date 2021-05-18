@@ -17,7 +17,7 @@ function Library({ styles, library_colors, toggle, update }) {
                 <div className={styles.colors_list}>
                     {library_colors.map(colors => {
                         return (
-                            <LibraryColorsItem styles={styles} colors={colors} update={update} />
+                            <LibraryColorsItem toggle={toggle} styles={styles} colors={colors} update={update} />
                         );
                     })}
                 </div>

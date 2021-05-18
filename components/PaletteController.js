@@ -40,7 +40,7 @@ function PaletteController({ styles, colors, library_colors, update, save }) {
         setShow(!show)
     }
 
-    let [show, setShow] = useState(true)
+    let [show, setShow] = useState(false)
 
     return (
         <div className={styles.palette_controller_container}>

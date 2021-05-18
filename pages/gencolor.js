@@ -23,7 +23,7 @@ function gencolor(props) {
     let save_to_library = () => {
         let prev = library
         if (!prev.includes(colors)) {
-            prev.push(colors)
+            prev.push(colors.map(c => { return { ...c } }));
         }
         setLibrary([...prev])
     }
@@ -46,6 +46,7 @@ function gencolor(props) {
             <PaletteController
                 styles={styles}
                 colors={colors}
+                library_colors={library}
                 update={update_color}
                 save={save_to_library}
             />

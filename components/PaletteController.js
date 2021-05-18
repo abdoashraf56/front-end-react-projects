@@ -1,8 +1,10 @@
 import Controller from "./Controller";
 import { BsArrowCounterclockwise } from 'react-icons/bs'
 import { MdSave, MdBook } from 'react-icons/md'
+import Library from "./Library";
+import { useState } from "react";
 
-function PaletteController({ styles, colors, update, save }) {
+function PaletteController({ styles, colors, library_colors, update, save }) {
 
     let generate_color = () => {
         let random_r = Math.floor(Math.random() * 255)
@@ -34,13 +36,19 @@ function PaletteController({ styles, colors, update, save }) {
         update(colors)
     }
 
+    let toggle_library = () => {
+        setShow(!show)
+    }
+
+    let [show, setShow] = useState(true)
+
     return (
         <div className={styles.palette_controller_container}>
             <Controller
                 styles={styles}
                 name={"Library"}
                 Icon={MdBook}
-                click={""}
+                click={toggle_library}
             />
             <Controller
                 styles={styles}
@@ -54,6 +62,14 @@ function PaletteController({ styles, colors, update, save }) {
                 Icon={MdSave}
                 click={save}
             />
+
+            {show && <Library
+                styles={styles}
+                library_colors={library_colors}
+                toggle={toggle_library}
+                update={update}
+            />
+            }
 
         </div>
     );

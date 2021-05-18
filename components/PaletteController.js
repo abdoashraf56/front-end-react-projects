@@ -5,9 +5,23 @@ import { MdSave, MdBook } from 'react-icons/md'
 function PaletteController({ styles, colors, update, save }) {
 
     let generate_color = () => {
-        let random = Math.floor(Math.random() * 16777215)
-        let hex_value = random.toString(16)
-        return "#" + hex_value
+        let random_r = Math.floor(Math.random() * 255)
+        let random_b = Math.floor(Math.random() * 255)
+        let random_g = Math.floor(Math.random() * 255)
+
+        random_r = getHexValue(random_r)
+        random_b = getHexValue(random_b)
+        random_g = getHexValue(random_g)
+
+        return `#` + random_r + random_b + random_g
+    }
+
+    let getHexValue = (number) => {
+        let string = number.toString(16)
+        if (string.length < 2) {
+            string = "0" + string
+        }
+        return string
     }
 
     let generate = () => {

@@ -7,12 +7,12 @@ function gencolor(props) {
     let num = 6 //the number of generated colors
 
     let [colors, setColors] = useState([
-        { id: 0, color_text: '#48404e', lock: true },
-        { id: 1, color_text: '#000000', lock: false },
-        { id: 2, color_text: '#a0a0f0', lock: false },
-        { id: 3, color_text: '#7af7cd', lock: true },
-        { id: 4, color_text: '#ffffff', lock: false },
-        { id: 5, color_text: '#272432', lock: false }
+        { color_text: '#48404e', lock: true },
+        { color_text: '#000000', lock: false },
+        { color_text: '#a0a0f0', lock: false },
+        { color_text: '#7af7cd', lock: true },
+        { color_text: '#ffffff', lock: false },
+        { color_text: '#272432', lock: false }
     ])
 
     let [library, setLibrary] = useState([
@@ -29,11 +29,11 @@ function gencolor(props) {
         alert("Save done to the library")
     }
 
-    let lock_or_not_color = (id) => {
+    let lock_or_not_color = (color_text) => {
         let prev = colors
-        let color = prev[id]
+        let color = prev.find(c => c.color_text == color_text)
         color.lock = !color.lock
-        prev[id] = color
+        prev[color_text] = color
         setColors([...prev])
     }
 

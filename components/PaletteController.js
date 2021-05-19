@@ -1,10 +1,11 @@
 import Controller from "./Controller";
 import { BsArrowCounterclockwise } from 'react-icons/bs'
-import { MdSave, MdBook } from 'react-icons/md'
+import { MdSave, MdBook, MdExposurePlus1, MdExposureNeg1 } from 'react-icons/md'
 import Library from "./Library";
 import { useState } from "react";
 
-function PaletteController({ styles, colors, library_colors, update, save }) {
+function PaletteController({ styles, colors, library_colors,
+    update, save }) {
 
     let generate_color = () => {
         let random_r = Math.floor(Math.random() * 255)
@@ -42,26 +43,68 @@ function PaletteController({ styles, colors, library_colors, update, save }) {
 
     let [show, setShow] = useState(false)
 
+    let increase_color = () => {
+        if (colors.length >= 6) {
+            alert("The Max numbers has been reached")
+            return;
+        };
+        let color_text = generate_color()
+        let c = { id: colors.length, color_text, lock: false }
+        colors.push(c)
+        update(colors);
+    }
+
+    let decrease_color = () => {
+        if (colors.length <= 1) {
+            alert("The Min numbers has been reached")
+            return;
+        };
+        let index = colors.findIndex(c => c.lock == false)
+        if (index == -1) {
+            alert("Can't revmove locked color if you want unlock it")
+            return;
+        }
+        colors.splice(index, 1)
+        update(colors);
+    }
+
     return (
         <div className={styles.palette_controller_container}>
-            <Controller
-                styles={styles}
-                name={"Library"}
-                Icon={MdBook}
-                click={toggle_library}
-            />
             <Controller
                 styles={styles}
                 name={"Generate"}
                 Icon={BsArrowCounterclockwise}
                 click={generate}
             />
+
             <Controller
                 styles={styles}
                 name={"Save"}
                 Icon={MdSave}
                 click={save}
             />
+
+            <Controller
+                styles={styles}
+                name={"Increase"}
+                Icon={MdExposurePlus1}
+                click={increase_color}
+            />
+
+            <Controller
+                styles={styles}
+                name={"Decrease"}
+                Icon={MdExposureNeg1}
+                click={decrease_color}
+            />
+
+            <Controller
+                styles={styles}
+                name={"Library"}
+                Icon={MdBook}
+                click={toggle_library}
+            />
+
 
             {show && <Library
                 styles={styles}

@@ -44,6 +44,7 @@ $meduim_screen: 768px;
         @extend .flex-row;
         flex: 1;
         flex-wrap: wrap;
+        padding-top: 16px;
 
         .library_bg {
             @extend .flex-col;
@@ -116,6 +117,7 @@ $meduim_screen: 768px;
             justify-content: center;
             align-items: center;
             flex: 1;
+            min-width: 150px;
 
             div {
                 @extend .flex-row;

@@ -5,7 +5,7 @@ import { MdTune } from 'react-icons/md'
 function ColorNode({ styles, color, lock }) {
 
     let handleClick = () => {
-        lock(color.id)
+        lock(color.color_text)
     }
 
     let handleAdjust = () => {

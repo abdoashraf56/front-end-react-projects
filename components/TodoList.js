@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import TodoItem from "./TodoItem";
 
 function TodoList({ styles, list, filter, update_todo, delete_todo }) {
@@ -23,21 +23,26 @@ function TodoList({ styles, list, filter, update_todo, delete_todo }) {
 
 
     return (
-        <motion.div layout className={styles.todo_list_container} style={{
-            overflow : list.length > 5 ? "scroll" : ""
-        }}>
-            {filter_list(list).map(todo => {
-                return (
-                    <TodoItem
-                        key={todo.id}
-                        data={todo}
-                        styles={styles}
-                        update_todo={update_todo}
-                        delete_todo={delete_todo}
-                    />
-                );
-            })}
-        </motion.div>
+        
+            <motion.div layout className={styles.todo_list_container} style={{
+                overflow : list.length > 5 ? "scroll" : ""
+            }}>
+                <AnimatePresence>
+                {filter_list(list)
+                        .sort((a,b) => a.text.localeCompare(b.text))
+                            .map(todo => {
+                    return (
+                        <TodoItem
+                            key={todo.id}
+                            data={todo}
+                            styles={styles}
+                            update_todo={update_todo}
+                            delete_todo={delete_todo}
+                        />
+                    );
+                })}
+                </AnimatePresence>
+            </motion.div>
     );
 }
 

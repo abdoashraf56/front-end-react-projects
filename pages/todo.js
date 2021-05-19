@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+
 import { useState } from 'react';
 import AddForm from '../components/AddForm';
 import FilterForm from '../components/FilterForm';
@@ -51,20 +51,22 @@ function todo(props) {
     return (
         <div className={theme ? styles.light : styles.dark}>
 
-
+            {/* 
             <div className={styles.splash_container}>
                 <Splash styles={styles} />
-            </div>
+            </div> */}
 
             <div className={styles.container}>
                 <label className={styles.switch}>
                     <input type="checkbox" onChange={handleThemeChange} />
                     <span className={styles.slider}></span>
                 </label>
-                <h1 className={styles.title}>The TODO APP</h1>
-                <div className={styles.add_filter_container}>
-                    <AddForm styles={styles} add={add_todo_to_list} />
-                    <FilterForm styles={styles} change_value={change_filter_value} />
+                <div className={styles.header_container}>
+                    <h1 className={styles.title}>The TODO APP</h1>
+                    <div className={styles.add_filter_container}>
+                        <AddForm styles={styles} add={add_todo_to_list} />
+                        <FilterForm styles={styles} change_value={change_filter_value} />
+                    </div>
                 </div>
 
                 <TodoList

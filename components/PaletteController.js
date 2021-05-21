@@ -96,7 +96,7 @@ function PaletteController({ styles, colors, library_colors,
 
             {showModelSave &&
                 <Model toggle={toggle_model_Save}>
-                    <h3>Save Done To Clipboard</h3>
+                    <h3 style={{ alignSelf: "center" }}>Save Done To Clipboard  &#128077;</h3>
                 </Model>
             }
 

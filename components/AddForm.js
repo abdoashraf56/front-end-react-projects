@@ -13,6 +13,12 @@ function AddForm({ styles, add }) {
         setText('')
     }
 
+    let handleKeyPress = (event => {
+        if (event.key == "Enter") {
+            handleClick()
+        }
+    })
+
     return (
         <div className={styles.flex_row}>
             <input
@@ -20,6 +26,8 @@ function AddForm({ styles, add }) {
                 type="text" maxLength={50}
                 value={text}
                 onChange={handleChange}
+
+                onKeyPress={handleKeyPress}
             />
             <button
                 className={styles.add_btn}

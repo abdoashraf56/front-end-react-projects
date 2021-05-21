@@ -4,8 +4,8 @@ function Controller({ styles, name, Icon, click }) {
         click()
     }
     return (
-        <div className={styles.controller} onClick={handleClick}>
-            <div style={{ cursor: "pointer" }}>
+        <div className={styles.controller} >
+            <div style={{ cursor: "pointer" }} onClick={handleClick}>
                 <Icon fontSize={30} />
             </div>
             <h3>{name}</h3>

@@ -1,0 +1,39 @@
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.model_bg {
+    @extend .flex-col;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    .model_container {
+        @extend .flex-col;
+        min-width: 200px;
+        width: 400px;
+        max-width: 90vw;
+        padding: 6px;
+
+        background-color: white;
+        border-radius: 16px;
+
+        .close_btn {
+            @extend .flex-row;
+            justify-content: flex-end;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+}

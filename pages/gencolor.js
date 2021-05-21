@@ -26,7 +26,6 @@ function gencolor(props) {
             prev.push(colors.map(c => { return { ...c } }));
         }
         setLibrary([...prev])
-        alert("Save done to the library")
     }
 
     let lock_or_not_color = (color_text) => {

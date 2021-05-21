@@ -3,6 +3,7 @@ import { BsArrowCounterclockwise } from 'react-icons/bs'
 import { MdSave, MdBook, MdExposurePlus1, MdExposureNeg1 } from 'react-icons/md'
 import Library from "./Library";
 import { useState } from "react";
+import Model from "./Model/Model";
 
 function PaletteController({ styles, colors, library_colors,
     update, save }) {
@@ -37,11 +38,20 @@ function PaletteController({ styles, colors, library_colors,
         update(colors)
     }
 
-    let toggle_library = () => {
-        setShow(!show)
+
+    let [showModelLibrary, setShowModelLibrary] = useState(false)
+
+    let toggle_model_library = () => {
+        setShowModelLibrary(!showModelLibrary)
     }
 
-    let [show, setShow] = useState(false)
+
+    let [showModelSave, setShowModelSave] = useState(false)
+
+    let toggle_model_Save = () => {
+        if (!showModelSave) save()
+        setShowModelSave(!showModelSave)
+    }
 
     let increase_color = () => {
         if (colors.length >= 6) {
@@ -81,8 +91,14 @@ function PaletteController({ styles, colors, library_colors,
                 styles={styles}
                 name={"Save"}
                 Icon={MdSave}
-                click={save}
+                click={toggle_model_Save}
             />
+
+            {showModelSave &&
+                <Model toggle={toggle_model_Save}>
+                    <h3>Save Done To Clipboard</h3>
+                </Model>
+            }
 
             <Controller
                 styles={styles}
@@ -102,17 +118,23 @@ function PaletteController({ styles, colors, library_colors,
                 styles={styles}
                 name={"Library"}
                 Icon={MdBook}
-                click={toggle_library}
+                click={toggle_model_library}
             />
 
 
-            {show && <Library
-                styles={styles}
-                library_colors={library_colors}
-                toggle={toggle_library}
-                update={update}
-            />
+            {showModelLibrary &&
+                <Model toggle={toggle_model_library}>
+                    <Library
+
+                        styles={styles}
+                        library_colors={library_colors}
+                        toggle={toggle_model_library}
+                        update={update}
+                    />
+                </Model>
             }
+
+
 
         </div>
     );

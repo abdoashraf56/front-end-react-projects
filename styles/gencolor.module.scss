@@ -46,67 +46,37 @@ $meduim_screen: 768px;
         flex-wrap: wrap;
         padding-top: 16px;
 
-        .library_bg {
+        .colors_list {
             @extend .flex-col;
-            position: absolute;
-            align-items: center;
-            justify-content: center;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.2);
 
-            .library_container {
-                @extend .flex-col;
-                min-width: 200px;
-                width: 400px;
-                max-width: 90vw;
+            overflow-y: scroll;
+            height: 140px;
 
-                background-color: white;
-                border-radius: 16px;
+            .library_colors_container {
+                @extend .flex-row;
+                justify-content: space-between;
+                padding: 0 0 0 12px;
 
-                .close_btn {
+                .show {
                     @extend .flex-row;
-                    justify-content: flex-end;
+                    height: 40px;
+                    justify-content: center;
                     align-items: center;
+                    color: rgb(231, 226, 226);
+                    background-color: navy;
+                    border-radius: 8px;
                     padding: 6px;
                     cursor: pointer;
                 }
 
-                .colors_list {
-                    @extend .flex-col;
+                .library_colors {
+                    @extend .flex-row;
+                    border: 1px solid black;
+                    margin-bottom: 16px;
 
-                    overflow-y: scroll;
-                    height: 140px;
-
-                    .library_colors_container {
-                        @extend .flex-row;
-                        justify-content: space-between;
-                        padding: 0 0 0 12px;
-
-                        .show {
-                            @extend .flex-row;
-                            height: 40px;
-                            justify-content: center;
-                            align-items: center;
-                            color: rgb(231, 226, 226);
-                            background-color: navy;
-                            border-radius: 8px;
-                            padding: 6px;
-                            cursor: pointer;
-                        }
-
-                        .library_colors {
-                            @extend .flex-row;
-                            border: 1px solid black;
-                            margin-bottom: 16px;
-
-                            .coloritem {
-                                width: 40px;
-                                height: 40px;
-                            }
-                        }
+                    .coloritem {
+                        width: 40px;
+                        height: 40px;
                     }
                 }
             }

@@ -23,7 +23,8 @@ $btn-font-size: 1.5em;
 
 //Inputs Values
 $input_text_value: 1em;
-$input_max_width: 150px;
+$input_min_width: 100px;
+$input_max_width: 200px;
 
 //TODO List Values
 $list_max_width: 500px;
@@ -124,7 +125,9 @@ $todo_item_min_height: 30px;
                 border: none;
                 font-weight: bold;
                 font-size: $input_text_value;
+                min-width: $input_min_width;
                 max-width: $input_max_width;
+                padding-left: 6px;
             }
 
             .add_btn {

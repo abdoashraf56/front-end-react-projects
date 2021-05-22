@@ -20,7 +20,7 @@ function AddForm({ styles, add }) {
     })
 
     return (
-        <div className={styles.flex_row}>
+        <div className={styles.input_container}>
             <input
                 className={styles.input_form}
                 type="text" maxLength={50}

@@ -7,7 +7,7 @@ function TodoList({ styles, list, filter, update_todo, delete_todo }) {
         if (filter == "All") return list
 
         return list.filter(todo => {
-            if (filter == "Complete") {
+            if (filter == "Compelete") {
                 return todo.compelete == true
             } else {
                 return todo.compelete == false

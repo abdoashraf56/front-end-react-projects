@@ -51,8 +51,8 @@ function todo(props) {
     return (
         <div className={theme ? styles.light : styles.dark}>
 
-            {/* 
-            <div className={styles.splash_container}>
+
+            {/* <div className={styles.splash_container}>
                 <Splash styles={styles} />
             </div> */}
 
@@ -65,7 +65,11 @@ function todo(props) {
                     <h1 className={styles.title}>The TODO APP</h1>
                     <div className={styles.add_filter_container}>
                         <AddForm styles={styles} add={add_todo_to_list} />
-                        <FilterForm styles={styles} change_value={change_filter_value} />
+                        <FilterForm
+                            styles={styles}
+                            change_value={change_filter_value}
+                            options={["All", "Compelete", "Uncomplete"]}
+                        />
                     </div>
                 </div>
 

@@ -112,20 +112,72 @@ $todo_item_min_height: 30px;
     .add_filter_container {
         @extend .flex_row;
         justify-content: space-around;
-        align-items: center;
+        align-items: first baseline;
+        flex-wrap: wrap;
         width: 60vw;
 
-        .input_form {
-            border: none;
-            font-weight: bold;
-            font-size: $input_text_value;
-            max-width: $input_max_width;
+        .input_container {
+            @extend .flex_row;
+            margin-bottom: 16px;
+
+            .input_form {
+                border: none;
+                font-weight: bold;
+                font-size: $input_text_value;
+                max-width: $input_max_width;
+            }
+
+            .add_btn {
+                @extend .btn;
+                color: var(--second_text_color);
+                border-radius: 0 $btn_radius_value $btn_radius_value 0;
+            }
         }
 
-        .add_btn {
-            @extend .btn;
-            color: var(--second_text_color);
-            border-radius: 0 $btn_radius_value $btn_radius_value 0;
+        .select_container {
+            @extend .flex_row;
+            cursor: pointer;
+            width: 130px;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 6px;
+            position: relative;
+            background-color: var(--second_text_color);
+            border-radius: 8px;
+
+            .select_value {
+                flex: 3;
+                color: var(--primary_text_color);
+            }
+
+            .arrow_container {
+                @extend .flex_row;
+                color: var(--primary_text_color);
+                justify-content: flex-end;
+                align-items: center;
+                flex: 1;
+                align-self: center;
+            }
+
+            .option_container {
+                @extend .flex_col;
+                width: 130px;
+                position: absolute;
+                left: 0;
+                top: 34px;
+                background-color: var(--second_text_color);
+                border-radius: $btn_radius_value;
+
+                .option {
+                    padding: 6px;
+                    color: var(--primary_text_color);
+                }
+
+                .option:hover {
+                    background-color: var(--primary_btn_color);
+                    color: var(--second_text_color);
+                }
+            }
         }
     }
 

@@ -52,9 +52,9 @@ function todo(props) {
         <div className={theme ? styles.light : styles.dark}>
 
 
-            {/* <div className={styles.splash_container}>
+            <div className={styles.splash_container}>
                 <Splash styles={styles} />
-            </div> */}
+            </div>
 
             <div className={styles.container}>
                 <label className={styles.switch}>

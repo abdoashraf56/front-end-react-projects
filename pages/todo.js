@@ -66,11 +66,11 @@ function todo(props) {
 
     useEffect(() => {
         get_storage_values()
-    }, [theme])
+    }, [])
 
 
     return (
-        <div className={Store.get('theme') ? styles.light : styles.dark}>
+        <div className={theme ? styles.light : styles.dark}>
 
             <div className={styles.splash_container}>
                 <Splash styles={styles} />

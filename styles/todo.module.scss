@@ -45,6 +45,7 @@ $todo_item_min_height: 30px;
     --second_text_color: #fff;
     --primary_btn_color: #fe7b45;
     --second_btn_color: #00bea3;
+    --primary_switch_color: #fe7b45;
 }
 
 .dark {
@@ -55,6 +56,7 @@ $todo_item_min_height: 30px;
     --second_text_color: #000;
     --primary_btn_color: #fe7b45;
     --second_btn_color: #00bea3;
+    --primary_switch_color: #000;
 }
 
 .flex_col {
@@ -269,7 +271,7 @@ $todo_item_min_height: 30px;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--primary_text_color);
+        background-color: var(--primary_switch_color);
         -webkit-transition: 0.4s;
         transition: 0.4s;
     }
@@ -288,11 +290,11 @@ $todo_item_min_height: 30px;
     }
 
     input:checked + .slider {
-        background-color: var(--primary_btn_color);
+        background-color: var(--primary_switch_color);
     }
 
     input:focus + .slider {
-        box-shadow: 0 0 1px var(--primary_btn_color);
+        box-shadow: 0 0 1px var(--primary_switch_color);
     }
 
     input:checked + .slider:before {

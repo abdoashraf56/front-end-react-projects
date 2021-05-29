@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ColorPalette from '../components/ColorPalette'
 import PaletteController from '../components/PaletteController'
 import styles from '../styles/gencolor.module.scss'
+import Store from 'store-js'
 
 function gencolor(props) {
     let num = 6 //the number of generated colors
@@ -25,7 +26,14 @@ function gencolor(props) {
         if (!prev.includes(colors)) {
             prev.push(colors.map(c => { return { ...c } }));
         }
-        setLibrary([...prev])
+        let new_lib = [...prev]
+        Store.set('lib', new_lib)
+        setLibrary(new_lib)
+    }
+
+    let clear_lib = () => {
+        Store.remove('lib')
+        setLibrary([])
     }
 
     let lock_or_not_color = (color_text) => {
@@ -40,6 +48,13 @@ function gencolor(props) {
         setColors([...colors])
     }
 
+
+
+    useEffect(() => {
+        let saved_lib = Store.get('lib')
+        if (saved_lib) setLibrary(saved_lib)
+    }, [])
+
     return (
         <div className={styles.container}>
             <ColorPalette styles={styles} colors={colors} func={lock_or_not_color} />
@@ -49,6 +64,7 @@ function gencolor(props) {
                 library_colors={library}
                 update={update_color}
                 save={save_to_library}
+                clear={clear_lib}
             />
         </div>
     );

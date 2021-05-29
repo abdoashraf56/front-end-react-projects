@@ -1,5 +1,11 @@
 import LibraryColorsItem from './LibraryColorsItem';
-function Library({ styles, library_colors, toggle, update }) {
+
+
+function Library({ styles, library_colors, toggle, update, clear }) {
+
+    let handleClear = () => {
+        clear()
+    }
 
     return (
         <>
@@ -11,6 +17,8 @@ function Library({ styles, library_colors, toggle, update }) {
                         <LibraryColorsItem toggle={toggle} styles={styles} colors={colors} update={update} />
                     );
                 })}
+
+                <div className={styles.clear} onClick={handleClear}> Clear </div>
             </div>
         </>
     );

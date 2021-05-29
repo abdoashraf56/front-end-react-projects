@@ -18,6 +18,24 @@ $meduim_screen: 768px;
     flex-direction: column;
 }
 
+.btn_style {
+    @extend .flex-row;
+    border: none;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(231, 226, 226);
+    background-color: navy;
+    border-radius: 8px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.okay {
+    @extend .btn_style;
+    background-color: green;
+}
+
 .container {
     @extend .flex-col;
     width: 100vw;
@@ -58,15 +76,7 @@ $meduim_screen: 768px;
                 padding: 0 0 0 12px;
 
                 .show {
-                    @extend .flex-row;
-                    height: 40px;
-                    justify-content: center;
-                    align-items: center;
-                    color: rgb(231, 226, 226);
-                    background-color: navy;
-                    border-radius: 8px;
-                    padding: 6px;
-                    cursor: pointer;
+                    @extend .btn_style;
                 }
 
                 .library_colors {
@@ -79,6 +89,11 @@ $meduim_screen: 768px;
                         height: 40px;
                     }
                 }
+            }
+
+            .clear {
+                @extend .btn_style;
+                background-color: tomato;
             }
         }
 

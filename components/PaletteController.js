@@ -6,7 +6,7 @@ import { useState } from "react";
 import Model from "./Model/Model";
 
 function PaletteController({ styles, colors, library_colors,
-    update, save }) {
+    update, save, clear }) {
 
     let generate_color = () => {
         let random_r = Math.floor(Math.random() * 255)
@@ -96,7 +96,8 @@ function PaletteController({ styles, colors, library_colors,
 
             {showModelSave &&
                 <Model toggle={toggle_model_Save}>
-                    <h3 style={{ alignSelf: "center" }}>Save Done To Clipboard  &#128077;</h3>
+                    <h3 style={{ alignSelf: "center" }}>Save Done To The Library  &#128077;</h3>
+                    <div onClick={toggle_model_Save} className={styles.okay}>Okay</div>
                 </Model>
             }
 
@@ -130,6 +131,7 @@ function PaletteController({ styles, colors, library_colors,
                         library_colors={library_colors}
                         toggle={toggle_model_library}
                         update={update}
+                        clear={clear}
                     />
                 </Model>
             }

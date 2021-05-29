@@ -2,7 +2,7 @@ import { BsFillUnlockFill, BsFillLockFill } from 'react-icons/bs'
 import { MdTune } from 'react-icons/md'
 
 
-function ColorNode({ styles, color, lock }) {
+function ColorNode({ styles, color, lock, toggle }) {
 
     let handleClick = () => {
         lock(color.color_text)
@@ -15,7 +15,7 @@ function ColorNode({ styles, color, lock }) {
     let handleColorTextClick = async (e) => {
         await navigator.clipboard.writeText(e.currentTarget.innerText)
 
-        alert("Coped to the clipboard")
+        toggle()
     }
 
     let colorCenter = 16777215 / 3

@@ -10,7 +10,7 @@ import Store from 'store-js';
 function todo(props) {
     let [filter_by, setFilter] = useState('All')
 
-    let [theme, setTheme] = useState()
+    let [theme, setTheme] = useState(true)
 
     let [todos, setTodos] = useState([
 
@@ -66,11 +66,11 @@ function todo(props) {
 
     useEffect(() => {
         get_storage_values()
-    }, [])
+    }, [theme])
 
 
     return (
-        <div className={theme ? styles.light : styles.dark}>
+        <div className={Store.get('theme') ? styles.light : styles.dark}>
 
             <div className={styles.splash_container}>
                 <Splash styles={styles} />
